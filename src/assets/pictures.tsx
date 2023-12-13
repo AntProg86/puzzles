@@ -1,0 +1,1 @@
+export const Logo = require('../assets/ice-cube_39082.png');

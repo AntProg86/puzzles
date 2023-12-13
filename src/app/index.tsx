@@ -7,6 +7,8 @@ import { Link, Route, Routes } from 'react-router-dom';
 import './reset.scss';
 import './styles.scss';
 
+import {Logo} from '../assets/pictures';
+
 type Props = {
 
 }
@@ -14,40 +16,32 @@ type Props = {
 const Application: React.FunctionComponent<Props> = () => {
 
   return (
-    <div className="">
-      <div>
-      <div>
-        <hr />
-        <nav>
-          <ul>
-            <div className=''>
+    <>
+      <header>
+        <section className='top-nav'>
+          <figure className='logo'>
+            <img src={Logo} alt="Logo" />
+          </figure>
+          <div className='top-nav__col-2'>
+            <input id="menu-toggle" type="checkbox"/>
+            <label className='menu-button-container' htmlFor="menu-toggle">
+              <div className='menu-button'></div>
+            </label>
+            <ul className="menu">
+              <li><Link to="/">{LocalizedStrings._home}</Link></li>
+              <li><Link to="/about">{LocalizedStrings._about}</Link></li>
+            </ul>
+          </div>
+        </section>
+      </header>
+      <Routes>
+        <Route path={ "/" } element={ <>main page</> } />
+        <Route path={ "/about" } element={ <>AboutPage</> } />
 
-              <li>
-                {/* <Link to="/">{LocalizedStrings._home}</Link> */}
-                <Link to="/">{LocalizedStrings._home}</Link>
-              </li>
-              &nbsp;||&nbsp;
-              <li>
-                {/* <Link to="/about">{LocalizedStrings._about}</Link> */}
-                <Link to="/about">{LocalizedStrings._about}</Link>
-              </li>
-              &nbsp;||&nbsp;
-              <li>
-              </li>
-            </div>
-          </ul>
-        </nav>
-        <hr />
-        <Routes>
-          <Route path={ "/" } element={ <>main page</> } />
-          <Route path={ "/about" } element={ <>AboutPage</> } />
-
-          {/* Перенаправление на главную страницу, если вызванной не существует */}
-          <Route path='*' element={ <>main page</> }/>
-        </Routes>
-      </div>
-      </div>
-    </div>
+        {/* Перенаправление на главную страницу, если вызванной не существует */}
+        <Route path='*' element={ <>main page</> }/>
+      </Routes>
+    </>
   );
 };
     
