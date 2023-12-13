@@ -8,6 +8,7 @@ import './reset.scss';
 import './styles.scss';
 
 import {Logo} from '../assets/pictures';
+import NumberPuzzle from '../pages/number-puzzle';
 
 type Props = {
 
@@ -35,7 +36,7 @@ const Application: React.FunctionComponent<Props> = () => {
         </section>
       </header>
       <Routes>
-        <Route path={ "/" } element={ <>main page</> } />
+        <Route path={ "/" } element={ <NumberPuzzle/> } />
         <Route path={ "/about" } element={ <>AboutPage</> } />
 
         {/* Перенаправление на главную страницу, если вызванной не существует */}
