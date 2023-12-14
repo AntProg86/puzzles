@@ -61,7 +61,32 @@ module.exports = {
       {
         test: /\.(css|scss)$/i,
         //use: [MiniCssExtractPlugin.loader, 'css-loader']
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader", 
+          // Translates CSS into CommonJS
+          "css-loader", 
+          // Compiles Sass to CSS
+          "sass-loader",
+          // compiles Less to CSS
+          "less-loader",
+          //Кроссбраузерность
+          //Браузеры не имеют единого стандарта 
+          //и могут по-разному отображать один и тот же элемент.
+          // В некоторых случаях для этого используют вендорные 
+          // префиксы перед новыми CSS-свойствами. Например, 
+          // не все браузеры могут одинаково хорошо прочитать время срабатывания анимации. 
+          // Чтобы решить этот вопрос, ставят префикс — приставку. 
+          // Таким образом создается отдельное свойство под конкретный браузер, 
+          // и вместо нормального transition-duration:0.76s, мы получаем:
+          // -webkit-transition-duration:0.76s;
+          // -moz-transition-duration:0.76s;
+          // -o-transition-duration:0.76s;
+          // -ms-transition-duration:0.76s;
+          // где webkit, moz, o, ms — это префикс.
+          "postcss-loader",
+          
+        ],
       },
       // Loading pictures
       {
