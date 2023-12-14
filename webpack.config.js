@@ -13,6 +13,7 @@ module.exports = {
     port: 3030,
     open: false,
     hot: true, // Включает автоматическую перезагрузку страницы при изменениях
+    historyApiFallback: true, //перенаправит ошибки 404 на /index.html.
   },
   entry: './src/index.tsx',
   output : {

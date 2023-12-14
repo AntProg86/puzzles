@@ -6,6 +6,7 @@ export interface IStrings extends LocalizedStringsMethods{
   language_switches: string;
   title: string;
   generate_error: string;
+  number_puzzle: string;
 }
 
 // Таблица перевода
@@ -17,14 +18,15 @@ let strings: IStrings;
       language_switches: "язык",
       title: "Заголовок",
       generate_error: 'Сгенерировать ошибку',
+      number_puzzle: 'число-загадка',
     },
-    en: {
-      _home: "Home",
-      _about: "Contacts",
-      language_switches: "language",
-      title: "Title",
-      generate_error: 'Generate error',
-    },
+    // en: {
+    //   _home: "Home",
+    //   _about: "Contacts",
+    //   language_switches: "language",
+    //   title: "Title",
+    //   generate_error: 'Generate error',
+    // },
   });
  
 export default strings;
