@@ -1,7 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 //const devtool = devMode ? 'inline-source-map' : undefined
 
 module.exports = {
@@ -23,6 +23,11 @@ module.exports = {
     clean: true,
   },
   resolve: {
+    //Чтобы работали пути ("paths": {"#api/*": ["src/services/*"]}),
+    //которые указаны в текст tsconfig.json
+    plugins: [
+      new TsconfigPathsPlugin({ configFile: path.resolve(process.cwd(), 'tsconfig.json') }),
+    ],
     extensions: ['.tsx', '.ts', '.js']
   },
   plugins: [

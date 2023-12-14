@@ -13,7 +13,7 @@ const NumberPuzzle: React.FunctionComponent<Props> = () => {
 
   return (
     <main >
-      <section>1</section>
+      <section>{LocalizedStrings._home}</section>
       <section>2</section>
       <section>3</section>
     </main>
