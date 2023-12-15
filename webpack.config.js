@@ -66,10 +66,7 @@ module.exports = {
           "style-loader", 
           // Translates CSS into CommonJS
           "css-loader", 
-          // Compiles Sass to CSS
-          "sass-loader",
-          // compiles Less to CSS
-          "less-loader",
+
           //Кроссбраузерность
           //Браузеры не имеют единого стандарта 
           //и могут по-разному отображать один и тот же элемент.
@@ -85,7 +82,12 @@ module.exports = {
           // -ms-transition-duration:0.76s;
           // где webkit, moz, o, ms — это префикс.
           "postcss-loader",
+
+          // Compiles Sass to CSS
+          "sass-loader",
           
+          // compiles Less to CSS
+          //"less-loader",
         ],
       },
       // Loading pictures

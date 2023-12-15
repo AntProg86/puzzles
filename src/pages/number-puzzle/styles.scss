@@ -1,3 +1,99 @@
 .number-puzzle-main {
-  background: yellow;
+    font-size: 28px;
+  
+  &__container {
+    width: 100%;
+    max-width: 768px;
+    height: 70%;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.562);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    //align-items: center;
+    //justify-content: space-between;
+  }
+  &__auxiliary-container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__titel {
+    text-align: right;
+    margin-bottom: 10px;
+    button {
+      padding: 10px 20px 10px 20px;
+      margin-left: 20px;
+      border-radius: 10px;
+      font-size: 22px;
+      
+      &:hover {
+        cursor: pointer;
+      }
+      &:active {
+        background: rgba(255, 255, 255, 0);
+      }
+    }
+  }
+  &__table {
+    display: flex;
+    justify-content: center;
+    //height: 400px;
+    table {
+      width: 100%;
+    }
+    th {
+      padding: 10px;
+    }
+    tr {
+      border-top: 1px solid black;
+    }
+    td {
+      padding: 10px;
+      text-align: center;
+    }
+  }
+  &__nambers {
+    //align-self: ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-top: 3px solid black;
+    margin-top: 7px;
+    padding-top: 7px;
+
+    &__input-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      &__digit {
+        display: flex;
+        align-items: center;
+        font-size: 35px;
+        height: 45%;
+        margin-right: 10px;
+        border: 2px solid black;
+        padding: 5px 15px;
+        border-radius: 30px;
+      }
+      &__buttons {
+        display: flex;
+        flex-direction: column;
+        button {
+          padding: 3px 10px;
+          font-size: 27px;
+          margin: 3px;
+          border-radius: 15px;
+          &:hover {
+            cursor: pointer;
+          }
+          &:active {
+            background: rgba(255, 255, 255, 0);
+          }
+        }
+      }
+    }
+  }
 }
