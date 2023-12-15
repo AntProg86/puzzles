@@ -7,6 +7,11 @@ export interface IStrings extends LocalizedStringsMethods{
   title: string;
   generate_error: string;
   number_puzzle: string;
+  restart: string;
+  rules: string;
+  exactly: string;
+  near: string;
+  number: string;
 }
 
 // Таблица перевода
@@ -19,6 +24,11 @@ let strings: IStrings;
       title: "Заголовок",
       generate_error: 'Сгенерировать ошибку',
       number_puzzle: 'число-загадка',
+      restart: 'Начать заново',
+      rules: 'Правила',
+      exactly: 'Точно',
+      near: 'Рядом',
+      number: 'Число',
     },
     // en: {
     //   _home: "Home",

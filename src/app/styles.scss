@@ -7,6 +7,9 @@ body > div {
   height: 100%;
 }
 
+$app-background: linear-gradient(to left, #ebeaea, #eceaea);
+$header-height: 100px;
+
 header {
   //background: linear-gradient(to left, #cccbcb, #d3d2d2);
   //width: 100px;
@@ -14,12 +17,12 @@ header {
 
 main {
   //height: 100vh;
-  height: 100%;
+  height: calc(100% - $header-height);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to left, #cccbcb, #d3d2d2);
+  background: $app-background
 }
 
 
@@ -35,7 +38,7 @@ main {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   //color: #FFF;
   //margin: 0px 10px 0px 10px;
-  height: 100px;
+  height: $header-height;
   width: 100%;
   max-width: var(--max-width);
   //max-width: var(--tablet-max-width);
