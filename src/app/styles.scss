@@ -10,6 +10,8 @@ body > div {
 $app-background: linear-gradient(to left, #ebeaea, #eceaea);
 $header-height: 100px;
 
+
+
 header {
   //background: linear-gradient(to left, #cccbcb, #d3d2d2);
   //width: 100px;
@@ -25,6 +27,21 @@ main {
   background: $app-background
 }
 
+@media screen and (max-width : 1140px) {
+  main {
+    //background: aqua;
+  }
+}
+@media screen and (max-width : 768px) {
+  main {
+    //background: yellow;
+  }
+}
+@media screen and (max-width : 576px) {
+  main {
+    //background: blue;
+  }
+}
 
 /*#region Menu*/
 .top-nav {

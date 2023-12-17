@@ -34,6 +34,36 @@ const NumberPuzzle: React.FunctionComponent<Props> = () => {
             <th>{LocalizedStrings.number}</th>
             <th>{LocalizedStrings.exactly}</th>
             <th>{LocalizedStrings.near}</th>
+            {/* <tr>
+              <td>1</td>
+              <td>1234</td>
+              <td>--</td>
+              <td>**</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1234</td>
+              <td>--</td>
+              <td>**</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1234</td>
+              <td>--</td>
+              <td>**</td>
+            </tr> */}
+            <tr>
+              <td>1</td>
+              <td>1234</td>
+              <td>--</td>
+              <td>**</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1234</td>
+              <td>--</td>
+              <td>**</td>
+            </tr>
             <tr>
               <td>1</td>
               <td>1234</td>
