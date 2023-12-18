@@ -128,3 +128,23 @@
     }
   }
 }
+
+.number-puzzle-rules {
+  padding: 10px;
+  box-sizing: content-box;
+  max-height: 550px;
+  overflow-y: scroll;
+  width: 70vw;
+  max-width: 768px
+}
+
+.number-puzzle-rules p {
+  margin-top: 7px;
+  text-indent: 15px;
+  line-height: 24px; /* высота строки (интервал между строками как в word)*/
+  //text-align: justify;
+}
+
+.number-puzzle-rules strong {
+  font-weight: bold;
+}

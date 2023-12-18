@@ -1,20 +1,40 @@
-import React, { useEffect, useContext, useState} from 'react';
+import React, { useEffect, useContext, useState, useLayoutEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import LocalizedStrings from '#src/app/localization';
 import './styles.scss';
+import Popup from '#src/components/popup';
 
 type Props = {
 
 }
 
-
+const RulesText = () => {
+  return(
+    <section id='number-puzzle-rules' className='number-puzzle-rules'>
+      
+    </section>
+  )
+}
 
 const NumberPuzzle: React.FunctionComponent<Props> = () => {
 
-  const test = () => {
-    console.log('*-*-*-*-*test');
-    
+  const [modalActive, setModalActive] = useState(false)
+  //console.log('*-*-*-*Render');
+  
+  const showRules = () => {
+    setModalActive(true);
   }
+
+  const test = () => {
+    setModalActive(true);
+  }
+
+  useLayoutEffect(()=>{
+    if(modalActive === true){
+      {document.getElementById('number-puzzle-rules').innerHTML = LocalizedStrings.number_puzzle_rules}
+    }
+  },[modalActive])
+  
   return (
     <main className='number-puzzle-main'>
       <div className='number-puzzle-main__container'>
@@ -22,7 +42,7 @@ const NumberPuzzle: React.FunctionComponent<Props> = () => {
           <button onClick={test}>
             {LocalizedStrings.restart}
           </button>
-          <button>
+          <button onClick={showRules}>
             {LocalizedStrings.rules}
           </button>
         </section>
@@ -30,53 +50,59 @@ const NumberPuzzle: React.FunctionComponent<Props> = () => {
         <div className='number-puzzle-main__auxiliary-container'>
         <section className='number-puzzle-main__table'>
           <table>
-            <th></th>
-            <th>{LocalizedStrings.number}</th>
-            <th>{LocalizedStrings.exactly}</th>
-            <th>{LocalizedStrings.near}</th>
-            {/* <tr>
-              <td>1</td>
-              <td>1234</td>
-              <td>--</td>
-              <td>**</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>1234</td>
-              <td>--</td>
-              <td>**</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>1234</td>
-              <td>--</td>
-              <td>**</td>
-            </tr> */}
-            <tr>
-              <td>1</td>
-              <td>1234</td>
-              <td>--</td>
-              <td>**</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>1234</td>
-              <td>--</td>
-              <td>**</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>1234</td>
-              <td>--</td>
-              <td>**</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>1234</td>
-              <td>--</td>
-              <td>**</td>
-            </tr>
-            
+            <thead>
+              <tr>
+                <td></td>
+                <td>{LocalizedStrings.number}</td>
+                <td>{LocalizedStrings.exactly}</td>
+                <td>{LocalizedStrings.near}</td>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>1234</td>
+                <td>--</td>
+                <td>**</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>1234</td>
+                <td>--</td>
+                <td>**</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>1234</td>
+                <td>--</td>
+                <td>**</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>1234</td>
+                <td>--</td>
+                <td>**</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>1234</td>
+                <td>--</td>
+                <td>**</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>1234</td>
+                <td>--</td>
+                <td>**</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>1234</td>
+                <td>--</td>
+                <td>**</td>
+              </tr>
+            </tbody>
           </table>
         </section>
 
@@ -122,6 +148,12 @@ const NumberPuzzle: React.FunctionComponent<Props> = () => {
         </div>
         
       </div>
+
+      <Popup active={modalActive} setActive={setModalActive} title={''}>
+        <>
+          <RulesText/>
+        </>
+      </Popup>
     </main>
   );
 };
