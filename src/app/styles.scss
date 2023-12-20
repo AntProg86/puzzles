@@ -1,29 +1,46 @@
+$app-background: linear-gradient(to left, #ebeaea, #eceaea);
+$header-height: 100px;
+$default-font-size: 24px;
 
 html, body {
-  height: 100%;
+  //height: 100%;
+  font-size: $default-font-size;
+}
+
+button {
+  font-size: $default-font-size;
 }
 
 body > div {
-  height: 100%;
+  //height: 100%;
 }
 
-$app-background: linear-gradient(to left, #ebeaea, #eceaea);
-$header-height: 100px;
-
-
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 768px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
 
 header {
   //background: linear-gradient(to left, #cccbcb, #d3d2d2);
   //width: 100px;
+  width: 100%;
+  // max-width: 768px;
+  // padding: 0 15px;
+  // margin: 0 auto;
+  // box-sizing: border-box;
 }
 
 main {
   //height: 100vh;
-  height: calc(100% - $header-height);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  //height: 100vh;
+  //height: calc(100% - $header-height);
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
   background: $app-background
 }
 
@@ -47,62 +64,30 @@ main {
 .top-nav {
   display: flex;
   flex-direction: row;
-  //background: #86928B;
-  //align-items: center;
-  //justify-content: space-between;
-  //background-color: #00BAF0;
-  //background: linear-gradient(to left, #f46b45, #eea849);
+  align-items: center;
+  justify-content: space-between;
+  // background-color: #00BAF0;
+  // background: linear-gradient(to left, #f46b45, #eea849);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   //color: #FFF;
-  //margin: 0px 10px 0px 10px;
   height: $header-height;
-  width: 100%;
-  max-width: var(--max-width);
-  //max-width: var(--tablet-max-width);
-  //margin: var(--tablet-margin-section);
-  //margin-right: 39px;
-}
+  //padding: 0 15px;
+  //padding: 1em;
 
-.logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30%;
-  height: 100%;
-}
-
-.logo img {
-  max-width: 100%;
-  height: 70%;
-}
-
-.top-nav__col-2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-items: center;
-  width: 100%;
 }
 
 .menu {
   display: flex;
   flex-direction: row;
+  justify-content: left;
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .menu > li {
-margin-right: 20px;
-overflow: hidden;
-}
-
-.menu > li :hover {
-color: #598D66;
-}
-.menu > li :focus {
-background: #D4E8D9;
-}
-.menu > li :active {
-color: #376B44;
+  margin: 0 1rem;
+  overflow: hidden;
 }
 
 .menu-button-container {
@@ -124,6 +109,7 @@ color: #376B44;
 .menu-button::after {
   display: block;
   background-color: black;
+  //background-color: #fff;
   position: absolute;
   height: 4px;
   width: 30px;
@@ -155,55 +141,14 @@ color: #376B44;
   transform: rotate(-405deg);
 }
 
-@media (max-width: 689px) {
-  .top-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-  }
-  .top-nav__col-2 {
-    justify-content: space-between;
-    margin-top: 16px;
-  }
-  header {
-    height: 123px;
-    //align-items: center;
-    //justify-content: center;
-  }
-  .logo {
-    border-bottom: 1px solid #86928B;
-    width: 100%;
-    text-align: center;
-  }
-  .logo svg {
-    margin-bottom: 22px;
-    margin-top: 22px;
-  }
-}
-
-@media screen and (max-width: 509px) {
-  
-  .top-nav__col-2 svg{
-    //padding: 0px 10px 0px 10px;
-    margin-right: 10px;
-  }
-  
-  .logo{
-    border-bottom: 0px;
-    background: white;
-    width: 100vw;
-  }
-
+@media (max-width: 700px) {
   .menu-button-container {
     display: flex;
-    margin-left: 10px;
   }
   .menu {
     position: absolute;
     top: 0;
-    margin-top: 123px;
+    margin-top: $header-height;
     left: 0;
     flex-direction: column;
     width: 100%;
@@ -218,27 +163,23 @@ color: #376B44;
     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
   }
   #menu-toggle:checked ~ .menu li {
-    border: 0px;
+    border: 1px solid #333;
     height: 2.5em;
     padding: 0.5em;
     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
   }
   .menu > li {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     margin: 0;
     padding: 0.5em 0;
     width: 100%;
+    background: white;
     //color: white;
-    background-color: #E1EDE6;
+    ///background-color: #222;
   }
   .menu > li:not(:last-child) {
     border-bottom: 1px solid #444;
   }
-
-  .menu li a{
-    margin-left: 20px;
-  }
-  
 }
 /*#endregion Menu*/

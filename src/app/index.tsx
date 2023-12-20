@@ -20,22 +20,22 @@ const Application: React.FunctionComponent<Props> = () => {
   return (
     <>
       <header>
-        <section className='top-nav'>
-          <figure className='logo'>
-            <img src={Logo} alt="Logo" />
-          </figure>
-          <div className='top-nav__col-2'>
-            <input id="menu-toggle" type="checkbox"/>
+        <div className='container'>
+          <section className="top-nav ">
+            <figure className='logo'>
+              <img src={Logo} alt="Logo" />
+            </figure>
+            <input id="menu-toggle" type="checkbox" />
             <label className='menu-button-container' htmlFor="menu-toggle">
-              <div className='menu-button'></div>
-            </label>
+            <div className='menu-button'></div>
+          </label>
             <ul className="menu">
               <li><Link to="/">{LocalizedStrings._home}</Link></li>
               <li><Link to="/about">{LocalizedStrings._about}</Link></li>
               <li><Link to="/NumberPuzzle">{LocalizedStrings.number_puzzle}</Link></li>
             </ul>
-          </div>
-        </section>
+          </section>
+        </div>
       </header>
       <Routes>
         <Route path={ "/NumberPuzzle" } element={ <NumberPuzzle/> } />
