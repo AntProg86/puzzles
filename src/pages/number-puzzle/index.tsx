@@ -16,6 +16,13 @@ const RulesText = () => {
     </section>
   )
 }
+const GameResult = () => {
+  return(
+    <section id='number-puzzle-gameResult' className='number-puzzle-rules'>
+      
+    </section>
+  )
+}
 
 const initState = {
   firstDigit: 1,
@@ -31,12 +38,15 @@ const initState = {
 
 const NumberPuzzle: React.FunctionComponent<Props> = () => {
 
-  const [modalActive, setModalActive] = useState(false)
+  const [modalActive, setModalActive] = useState(false);
+  const [modalResultActive, setModalResultActive] = useState(false);
+  
   const [state, changeState] = useState<State>(initState);
   
+  //Показать в модальном окне правила игры
   const showRules = () => {
     setModalActive(true);
-  }
+  };
 
   //Начать заново
   const onClickReset = () => {
@@ -45,6 +55,7 @@ const NumberPuzzle: React.FunctionComponent<Props> = () => {
     }))
   };
 
+  //Увеличить или уменьшить на единицу одни из номеров
   const changeDigit = (
     digit: 'firstDigit' | 'secondDigit' | 'thirdDigit' | 'fourthDigit',
     operation: 'increment' | 'decrement'
@@ -127,12 +138,14 @@ const NumberPuzzle: React.FunctionComponent<Props> = () => {
     return _mask
   };
 
+  //Сверить введённый номер со случайным
   const checkNumber = (num:number) : boolean => {
     if(num === state.RandomNumber)
       return true
     return false
   };
 
+  //Пользователь нажал кнопку «Ввод»
   const EnterNumber = () => {
 
     const _enteredNumber = getDigitsAsNumber()
@@ -168,7 +181,7 @@ const NumberPuzzle: React.FunctionComponent<Props> = () => {
   const DigitBox = ({value, increment, decrement}:DigitBoxProps) => {
     return(
       <>
-        <div className='number-puzzle-main__nambers__input-container'>
+        <div className={state.isNumberIncorrect ? 'number-puzzle-main__nambers__input-container textColorRed' : 'number-puzzle-main__nambers__input-container'}>
           <div className='number-puzzle-main__nambers__input-container__digit'>
             {value}
           </div>
@@ -177,26 +190,37 @@ const NumberPuzzle: React.FunctionComponent<Props> = () => {
             <button onClick={decrement}>-</button>
           </div>
         </div>
-        {/* <NumberBox
-          value={value}
-          readOnly={true}
-          //disabled={true}
-          className={state.isNumberIncorrect === true ? 'textColorRed margin_right_5px margin_left_5px fontSize_20px' : 'margin_right_5px margin_left_5px fontSize_20px'}
-        />
-        <div className='flexCol'>
-          <DxButton
-            onClick={increment}
-            icon='plus'
-            className='margin_bottom_3px'
-          />
-          <DxButton
-            icon='minus'
-            onClick={decrement}
-          />
-        </div> */}
       </>
     )
   };
+
+  //Определяет корректность пользовательского номера
+  useEffect(()=>{
+    
+    if(state.firstDigit === 0){
+      changeState((state) => ({
+        ...state,
+        isNumberIncorrect: true
+      }))
+      return
+    }
+    
+    if(findDuplicates(getDigitsAsArray()) === true){
+      changeState((state) => ({
+        ...state,
+        isNumberIncorrect: true
+      }))
+      return
+    }
+
+    if(state.isNumberIncorrect === true){
+      changeState((state) => ({
+        ...state,
+        isNumberIncorrect: false
+      }))
+    }
+    
+  },[state.firstDigit, state.secondDigit, state.thirdDigit, state.fourthDigit]);
 
   //После 7-й неудачной попытки будет пройгрыш
   useEffect(()=>{
@@ -209,12 +233,30 @@ const NumberPuzzle: React.FunctionComponent<Props> = () => {
     }
   },[state.EnteredNumbers]);
 
+  //Показать модальное окно с результатом игры
+  useEffect(()=>{
+    if(state.gameResult){
+      setModalResultActive(true);
+    }
+  },[state.gameResult]);
+
+  //Добавить текс с правила в модальное окно
   useLayoutEffect(()=>{
     if(modalActive === true){
       {document.getElementById('number-puzzle-rules').innerHTML = LocalizedStrings.number_puzzle_rules}
     }
-  },[modalActive])
+  },[modalActive]);
 
+  //Показать в модальном окне результат игры
+  useLayoutEffect(()=> {
+    if(modalResultActive === true){
+      {document.getElementById('number-puzzle-gameResult')
+      .innerHTML = state.gameResult === 'win' ?
+       LocalizedStrings.win
+       :
+       LocalizedStrings.lose + ' ' + state.RandomNumber}
+    }
+  },[modalResultActive]);
   
   const test = () => {
     console.log('*-*-*-*-*-*-test');
@@ -224,7 +266,7 @@ const NumberPuzzle: React.FunctionComponent<Props> = () => {
   
   return (
     <main className='number-puzzle-main'>
-      <div className='number-puzzle-main__container'>
+      <div className='number-puzzle-main__container container'>
         <section className='number-puzzle-main__titel'>
           <button onClick={onClickReset}>
             {LocalizedStrings.restart}
@@ -247,73 +289,47 @@ const NumberPuzzle: React.FunctionComponent<Props> = () => {
             </thead>
 
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>1234</td>
-                <td>--</td>
-                <td>**</td>
+              {state.EnteredNumbers.map((num)=>(
+                <tr key={num.id}>
+                <td>{num.id}</td>
+                <td>{num.number}</td>
+                <td>{num.exactly}</td>
+                <td>{num.near}</td>
               </tr>
-              <tr>
-                <td>1</td>
-                <td>1234</td>
-                <td>--</td>
-                <td>**</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>1234</td>
-                <td>--</td>
-                <td>**</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>1234</td>
-                <td>--</td>
-                <td>**</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>1234</td>
-                <td>--</td>
-                <td>**</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>1234</td>
-                <td>--</td>
-                <td>**</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>1234</td>
-                <td>--</td>
-                <td>**</td>
-              </tr>
+              ))}
+              
             </tbody>
           </table>
         </section>
 
         <section className='number-puzzle-main__nambers'>
-          <DigitBox
-            value={state.firstDigit}
-            increment={()=>changeDigit('firstDigit','increment')}
-            decrement={()=>changeDigit('firstDigit','decrement')}
-          />
-          <DigitBox
-            value={state.secondDigit}
-            increment={()=>changeDigit('secondDigit','increment')}
-            decrement={()=>changeDigit('secondDigit','decrement')}
-          />
-          <DigitBox
-            value={state.thirdDigit}
-            increment={()=>changeDigit('thirdDigit','increment')}
-            decrement={()=>changeDigit('thirdDigit','decrement')}
-          />
-          <DigitBox
-            value={state.fourthDigit}
-            increment={()=>changeDigit('fourthDigit','increment')}
-            decrement={()=>changeDigit('fourthDigit','decrement')}
-          />
+            <div className='number-puzzle-main__nambers__digitBox'>
+              <DigitBox
+                value={state.firstDigit}
+                increment={()=>changeDigit('firstDigit','increment')}
+                decrement={()=>changeDigit('firstDigit','decrement')}
+              />
+              <DigitBox
+                value={state.secondDigit}
+                increment={()=>changeDigit('secondDigit','increment')}
+                decrement={()=>changeDigit('secondDigit','decrement')}
+              />
+              <DigitBox
+                value={state.thirdDigit}
+                increment={()=>changeDigit('thirdDigit','increment')}
+                decrement={()=>changeDigit('thirdDigit','decrement')}
+              />
+              <DigitBox
+                value={state.fourthDigit}
+                increment={()=>changeDigit('fourthDigit','increment')}
+                decrement={()=>changeDigit('fourthDigit','decrement')}
+              />
+            </div>
+            <div className='number-puzzle-main__nambers__enter'>
+              <button onClick={EnterNumber} className='enter' disabled={state.isNumberIncorrect || state.gameResult ? true : false}>
+                {LocalizedStrings.enter}
+              </button>
+            </div>
           
         </section>
         </div>
@@ -323,6 +339,11 @@ const NumberPuzzle: React.FunctionComponent<Props> = () => {
       <Popup active={modalActive} setActive={setModalActive} title={''}>
         <>
           <RulesText/>
+        </>
+      </Popup>
+      <Popup active={modalResultActive} setActive={setModalResultActive} title={''}>
+        <>
+          <GameResult/>
         </>
       </Popup>
     </main>
