@@ -10,8 +10,10 @@ import './styles.scss';
 import {Logo} from '../assets/pictures';
 import NumberPuzzle from '../pages/number-puzzle';
 import AboutMe from '../pages/about-me';
+import MainPage from '../pages/main';
 import { AppContext } from './context';
 import { useDispatch } from 'react-redux';
+import WebFont from 'webfontloader';
 
 type Props = {
 
@@ -20,6 +22,17 @@ type Props = {
 const Application: React.FunctionComponent<Props> = () => {
 
   const dispatch = useDispatch();
+
+  //Загружаем нужные шрифты, используя имя шрифта.
+  //npm i webfontloader
+  //npm i --save-dev @types/webfontloader
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ['Droid Sans', 'Chilanka', 'Sevillana']
+      }
+    });
+   }, []);
 
   //Получить токен для авторизации, если нужен
   const getToken = async () => {
@@ -99,7 +112,7 @@ const Application: React.FunctionComponent<Props> = () => {
           <Route path={ "/about" } element={ <AboutMe/> } />
 
           {/* Перенаправление на главную страницу, если вызванной не существует */}
-          <Route path='*' element={ <>main page</> }/>
+          <Route path='*' element={ <MainPage/> }/>
         </Routes>
       </>
       </AppContext.Provider>

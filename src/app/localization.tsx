@@ -16,6 +16,17 @@ export interface IStrings extends LocalizedStringsMethods{
   enter: string;
   win: string;
   lose: string;
+  mnemosyne: string;
+  mnemosyne_short: string;
+  gabriel_dante_rosetti: string;
+  artist: string;
+  mnemosyne_paragraph_1: string;
+  mnemosyne_paragraph_2: string;
+  mnemosyne_paragraph_3: string;
+  mnemosyne_paragraph_4: string;
+  mnemosyne_paragraph_5: string;
+  mnemosyne_paragraph_6: string;
+  mnemosyne_paragraph_7: string;
 }
 
 // Таблица перевода
@@ -46,6 +57,18 @@ let strings: IStrings;
       
       win:`<p><strong>Победа!</strong></p>`,
       lose:`<p><strong>Проигрыш</strong></p>Загаданное число:<p></P>`,
+      mnemosyne: 'Мнемосина -',
+      mnemosyne_short: 'богиня, олицетворявшая память',
+      gabriel_dante_rosetti: 'Данте Габриэль Россетти',
+      artist: 'Художник:',
+      mnemosyne_paragraph_1: 'В греческой мифологии богиня памяти, дочь Урана (небо) и Геи (земли), титанида.',
+      mnemosyne_paragraph_2: 'Согласно поэту Гесиоду, Мнемосина знает «обо всем, что было, есть и будет». Во время молитв Мнемосине, по словам древнегреческого писателя Павсания, люди просили улучшить их способность запоминать услышанное и увиденное.',
+      mnemosyne_paragraph_3: 'JavaScript, TypeSript, npm, Node JS, Webpack, React, HTML, CSS, SCSS, SASS, C#, SQL …',
+      mnemosyne_paragraph_4: 'О, Мнемосина, супруга могучего Зевса! Матерь священных умов и ликующих Муз!',
+      mnemosyne_paragraph_5: 'Дай памяти…',
+      mnemosyne_paragraph_6: 'Не сотвори себе кумира и всякого изображения того, что на небе вверху, и на земле внизу, и в воде ниже земли; не поклоняйся и не служи им.',
+      mnemosyne_paragraph_7: 'Вторая заповедь Закона Божия',
+
     },
     // en: {
     //   _home: "Home",

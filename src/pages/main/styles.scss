@@ -1,0 +1,92 @@
+.main_page_main{
+  height: calc(100% - var(--header-height));
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  
+}
+
+.main_page_main .container {
+  
+  width: 90%;
+  max-width: 768px;
+  height: 100%;
+  //max-height: 648px;
+  padding: clamp(20px, 5vw, 40px);
+  box-sizing: border-box;
+  background: var(--page-background);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
+  border-radius: 30px;
+  // background-image: url(./pictures/ramka3.png);
+  // background-repeat: no-repeat;
+  // background-size: 100% 100%;
+  //height: 100%;
+  //width: 500px;
+
+  //background-position: ;
+  //background-size: contain;
+  //border: 1px solid brown;
+  // padding: 20px;
+  // box-shadow:
+	//   inset #1c1d1d 0 0 0 1px, 
+  //   inset #5e6362 0 0 0 2px, 
+  //   inset #656b6b 0 0 0 3px;
+  // text-shadow: 3px 3px 1px #bfecf7;
+  // border-radius: 15px;
+}
+
+.main_page_main .container h2{
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ flex-wrap: wrap;
+ padding-top: 10px;
+ //margin-top: 5px;
+ margin-bottom: 15px;
+ font-weight: bold;
+}
+
+.main_page_main__mnemosyne {
+  // max-width: 280px;
+  // max-height: 542px;
+  width: 30%;
+  float: left;
+  margin-right: 10px;
+}
+
+.main_page_main__mnemosyne img {
+  display: block;
+  max-width: 100%;
+  //width: 10em;
+  //height: inherit;
+  //height: auto;
+  //height: 100%;
+  height: 15em;
+  //object-fit: cover;
+}
+.main_page_main__mnemosyne figcaption {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 13px;
+  //height: auto;
+}
+
+.main_page_main__mnemosyne_text p {
+  text-indent: 10px;
+  line-height: 24px; 
+  text-align: justify;
+  margin-bottom: 7px;
+}
+
+.main_page_main__commandment {
+  margin-top: 25px;
+}
+.main_page_main__commandment q p:first-child{
+  text-indent: 20px;
+  font-style: italic;
+}
+.main_page_main__commandment q p:last-child{
+  font-weight: bold;
+  text-align: right;
+}
