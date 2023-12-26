@@ -19,6 +19,9 @@
       "#src/*": [
         "src/*"
       ],
+      "#app/*": [
+        "src/app/*"
+      ],
       "react": [ "./node_modules/@types/react" ]
     },
   },

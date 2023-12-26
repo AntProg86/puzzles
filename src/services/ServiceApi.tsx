@@ -145,7 +145,7 @@ class serviceApi {
     return res
   }
 
-  getPlanet = async (address:string) => {  
+  getPlanet = async (address:string, planetId:number) => {  
     
     // Получаем заголовки и свойства запроса
     //let requestOptions = this.requestOptionsGet(token);
@@ -161,7 +161,7 @@ class serviceApi {
     // console.log('*-*-*---*requestOptions');
     // console.log(requestOptions);
 
-    //const api_address = 'https://swapi.dev/api/planets/1';
+    address = `https://swapi.dev/api/planets/${planetId}`;
 
     const res_resource = await this.getResource(`${address}`, requestOptions);
     const res = await res_resource.res_body;

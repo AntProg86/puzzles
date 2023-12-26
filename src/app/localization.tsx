@@ -27,6 +27,8 @@ export interface IStrings extends LocalizedStringsMethods{
   mnemosyne_paragraph_5: string;
   mnemosyne_paragraph_6: string;
   mnemosyne_paragraph_7: string;
+  star_wars: string;
+  more_details: string;
 }
 
 // Таблица перевода
@@ -68,6 +70,8 @@ let strings: IStrings;
       mnemosyne_paragraph_5: 'Дай памяти…',
       mnemosyne_paragraph_6: 'Не сотвори себе кумира и всякого изображения того, что на небе вверху, и на земле внизу, и в воде ниже земли; не поклоняйся и не служи им.',
       mnemosyne_paragraph_7: 'Вторая заповедь Закона Божия',
+      star_wars: 'Star Wars',
+      more_details: 'Подробнее',
 
     },
     // en: {

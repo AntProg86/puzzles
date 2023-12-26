@@ -16,13 +16,3 @@ export const getCurrencyRateFetch = createAsyncThunk<any, any>(
     );
   }
 );
-
-export const getPlanetFetch = createAsyncThunk<any, any>(
-  '/PlanetListFetch/fetch',
-  async ({
-  }) => {
-    return await ServiceApi.getPlanet( 
-      api_addresses.star_wars_planets,
-    );
-  }
-);

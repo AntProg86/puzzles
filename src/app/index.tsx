@@ -14,6 +14,7 @@ import MainPage from '../pages/main';
 import { AppContext } from './context';
 import { useDispatch } from 'react-redux';
 import WebFont from 'webfontloader';
+import StarWars from '#src/pages/star-wars/star-wars-list-page';
 
 type Props = {
 
@@ -101,8 +102,8 @@ const Application: React.FunctionComponent<Props> = () => {
             </label>
               <ul className="menu">
                 <li><Link to="/">{LocalizedStrings._home}</Link></li>
-                <li><Link to="/about">{LocalizedStrings._about}</Link></li>
                 <li><Link to="/NumberPuzzle">{LocalizedStrings.number_puzzle}</Link></li>
+                <li><Link to="/StarWars">{LocalizedStrings.star_wars}</Link></li>
               </ul>
             </section>
           </div>
@@ -110,6 +111,7 @@ const Application: React.FunctionComponent<Props> = () => {
         <Routes>
           <Route path={ "/NumberPuzzle" } element={ <NumberPuzzle/> } />
           <Route path={ "/about" } element={ <AboutMe/> } />
+          <Route path={ "/StarWars" } element={ <StarWars/> } />
 
           {/* Перенаправление на главную страницу, если вызванной не существует */}
           <Route path='*' element={ <MainPage/> }/>
