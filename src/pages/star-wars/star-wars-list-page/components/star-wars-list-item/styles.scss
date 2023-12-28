@@ -1,10 +1,19 @@
+$img_height: 180px;
+$img_width: 180px;
+
 .planet_card_container {
-  width: 100%;
+  //width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin: 3px;
+}
+
+.Loading_container {
+  height: $img_height;
+  width: $img_width;
 }
 
 .planet_card_container figcaption {
@@ -13,8 +22,8 @@
 }
 
 .planet_card_container img {
-  height: 120px;
-  width: 120px;
+  height: $img_height;
+  width: $img_width;
   border-radius: 15px;
 }
 .planet_card_container img:hover {

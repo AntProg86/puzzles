@@ -1,8 +1,14 @@
 .star_wars_main {
-  height: var(--page-height)
+  height: var(--page-height);
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  
 }
 
 .planet_list {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
