@@ -14,7 +14,7 @@
   pointer-events: none;
 }
 
-.popup.active {
+.popup.popup__active {
   opacity: 1;
   pointer-events: all;
 }
@@ -35,7 +35,7 @@
   display: flex;
 }
 
-.popup__container.active {
+.popup__container.popup__active {
   transform: scale(1);
 }
 

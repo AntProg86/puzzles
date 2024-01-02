@@ -14,7 +14,7 @@ type Props = {
 
 const MainPage: React.FunctionComponent<Props> = () => {
 
-  const [observableObject, setObsOb] = useState<'mnemosyne' | 'muses'>('muses')
+  const [observableObject, setObsOb] = useState<'mnemosyne' | 'muses'>('mnemosyne')
 
   const _appContext = useContext(AppContext);
   const dispatch = useDispatch();

@@ -12,12 +12,12 @@ type Props = {
   children: React.JSX.Element;
 }
 
-//active - виден popup или нет
+//popup__active - виден popup или нет
 //setActive - функция, которая изменяет active
 const Popup = ({active, setActive, title, children}: Props) => {
   return (
-    <div className={active ? 'popup active' : 'popup'} onClick={()=> setActive(false)}>
-      <div className={active ? 'popup__container active' : 'popup__container'} onClick={e => e.stopPropagation()}>
+    <div className={active ? 'popup popup__active' : 'popup'} onClick={()=> setActive(false)}>
+      <div className={active ? 'popup__container popup__active' : 'popup__container'} onClick={e => e.stopPropagation()}>
         <section className='popup__title'>
           <div>
             {title}
