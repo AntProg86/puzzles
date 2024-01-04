@@ -7,7 +7,7 @@ import { findDuplicates, getPuzzleNumber } from './func';
 
 type Props = {
 
-}
+};
 
 const RulesText = () => {
   return(
@@ -15,14 +15,15 @@ const RulesText = () => {
       
     </section>
   )
-}
+};
+
 const GameResult = () => {
   return(
     <section id='number-puzzle-gameResult' className='number-puzzle-rules'>
       
     </section>
   )
-}
+};
 
 const initState = {
   firstDigit: 1,
