@@ -10,10 +10,11 @@ import { RootReducer } from '#src/store/types';
 type State = {
   /**количество загруженных планет */
   planet?: Planet;
-  
+  planetInfoVisibility: boolean;
 };
 
 const initState = {
+  planetInfoVisibility: false,
 };
 
 type Props = {
@@ -31,7 +32,7 @@ const StarWarsListItem: React.FunctionComponent<Props> = ({planetId}) => {
   useEffect(()=>{
     
     if(state.planet !== undefined) return;
-
+    //changeState((state) => ({
     const _planetFromStore = storeLoadedPlanetList.filter(p=>p.id === planetId)
     // console.log('*-*-*-*_planetFromStore');
     // console.log(_planetFromStore);
@@ -68,6 +69,20 @@ const StarWarsListItem: React.FunctionComponent<Props> = ({planetId}) => {
       //dispatch(ActionMainLoadPanelShow(false));
     });
   },[]);
+
+  const showPlanetInfo = () => {
+     changeState((state) => ({ 
+     ...state, 
+       planetInfoVisibility: true
+     }))
+  };
+
+  const hidePlanetInfo = () => {
+     changeState((state) => ({ 
+     ...state, 
+       planetInfoVisibility: false
+     }))
+  }
   
   return (
     <>
@@ -81,8 +96,39 @@ const StarWarsListItem: React.FunctionComponent<Props> = ({planetId}) => {
             <>
               <figure>
                 <figcaption>{state.planet.name}</figcaption>
-                <p><img src={`https://starwars-visualguide.com/assets/img/planets/${planetId}.jpg`} alt="" /></p>
+                <p><img onClick={showPlanetInfo}
+                  src={`https://starwars-visualguide.com/assets/img/planets/${planetId}.jpg`} 
+                  alt="" />
+                  </p>
+                
+                
               </figure>
+
+              {state.planetInfoVisibility === true &&
+                <div className='planet_card_container__planet_info'>
+                  <div>
+                    <div>
+                      {state.planet.name}
+                    </div>
+                    <div><button onClick={hidePlanetInfo}>X</button></div>
+                  </div>
+                  <div>
+                    {LocalizedStrings.population}:
+                    <div>{state.planet.population}</div>
+                  </div>
+                  <div>
+                    {LocalizedStrings.diameter}:
+                    <div>{state.planet.diameter}</div>
+                  </div>
+                  <div>
+                    {LocalizedStrings.gravity}:
+                    <div>{state.planet.gravity}</div>
+                  </div>
+                  
+                </div>
+              }
+              
+              
             </>
           )
         }

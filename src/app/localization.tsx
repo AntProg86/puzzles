@@ -74,6 +74,9 @@ export interface IStrings extends LocalizedStringsMethods{
   urania_paragraph_1: string;
   urania_paragraph_2: string;
   urania_paragraph_3: string;
+  population: string;
+  diameter: string;
+  gravity: string;
 
 }
 
@@ -167,6 +170,9 @@ let strings: IStrings;
       urania_paragraph_1: 'Муза астрономии',
       urania_paragraph_2: 'Согласно Диодору, получила имя от устремленности к небу (урано́с) тех, кто постиг ее искусство.',
       urania_paragraph_3: 'В честь Урании назван астероид (30) Урания, открытый в 1854 году.',
+      population: 'Население',
+      diameter: "Диаметр",
+      gravity: "Сила тяжести",
     },
     // en: {
     //   _home: "Home",
