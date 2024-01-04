@@ -13,7 +13,7 @@ import AboutMe from '../pages/about-me';
 import MainPage from '../pages/main';
 import { AppContext } from './context';
 import { useDispatch } from 'react-redux';
-import WebFont from 'webfontloader';
+//import WebFont from 'webfontloader';
 import StarWars from '#src/pages/star-wars/star-wars-list-page';
 
 type Props = {
@@ -27,13 +27,13 @@ const Application: React.FunctionComponent<Props> = () => {
   //Загружаем нужные шрифты, используя имя шрифта.
   //npm i webfontloader
   //npm i --save-dev @types/webfontloader
-  useEffect(() => {
-    WebFont.load({
-      google: {
-        families: ['Droid Sans', 'Chilanka', 'Sevillana']
-      }
-    });
-   }, []);
+  // useEffect(() => {
+  //   WebFont.load({
+  //     google: {
+  //       families: ['Droid Sans', 'Chilanka', 'Sevillana']
+  //     }
+  //   });
+  //  }, []);
 
   //Получить токен для авторизации, если нужен
   const getToken = async () => {
